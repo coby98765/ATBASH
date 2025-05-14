@@ -1,13 +1,22 @@
-﻿namespace ATBASH
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace ATBASH
 {
     class Program
     {
         static void Main()
         {
-            
+            while (true)
+            {
+                Console.WriteLine("Welcome to the ATBASH decryption system");
+                Console.WriteLine("Enter your encrypted data: ");
+                string EncryptedData = Console.ReadLine();
+                Printer(RiskCalculation(Decoder(EncryptedData)));
+
+            }
         }
         // decrypting function
-        string Decoder(string EncryptedText)
+        static string Decoder(string EncryptedText)
         {
             string DecryptedText = " ";
             Dictionary<char, char> Atbash = new Dictionary<char, char>
@@ -56,7 +65,7 @@
 
 
         // message analyzer
-        Dictionary<string, string> RiskCalculation(string EnemyInformation)
+        static Dictionary<string, string> RiskCalculation(string EnemyInformation)
         {
             string[] dangerousWords = { "bomb", "nukhba", "fighter", "rocket", "secret" };
             string[] arrEnemyInformatin = EnemyInformation.Split(" ");
@@ -84,8 +93,7 @@
             return InformationFromTheFile;
         }
 
-        //converts list to string
-        string ToString(List<string> list)
+        static string ToString(List<string> list)
         {
             string Words = "";
             foreach (string word in list)
@@ -106,7 +114,7 @@
             PrintWarningBanner(Convert.ToInt32(msgDict["score"]));
             Console.WriteLine($"Decrypted Message: {msgDict["Information"]}");
             Console.WriteLine($"Dangerous Words Found in Message: {msgDict["dangerous Words"]}");
-            Console.WriteLine($"Amount of Dangerous Words Message: {msgDict["score"]}");
+            Console.WriteLine($"Amount of Dangerous Words Message: {msgDict["score"]}\n\n");
             return true;
         }
 
