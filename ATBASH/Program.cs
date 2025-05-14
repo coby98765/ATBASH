@@ -56,6 +56,41 @@
 
 
         // message analyzer
+        Dictionary<string, string> RiskCalculation(string EnemyInformation)
+        {
+            string[] dangerousWords = { "bomb", "nukhba", "fighter", "rocket", "secret" };
+            string[] arrEnemyInformatin = EnemyInformation.Split(" ");
+            List<string> dangerousWordsUsed = new List<string>();
+            int score = 0;
+            foreach (string word in arrEnemyInformatin)
+            {
+                if (dangerousWords.Contains(word))
+                {
+                    if (!(dangerousWordsUsed.Contains(word)))
+                    {
+                        dangerousWordsUsed.Add(word);
+
+                    }
+                    else
+                    {
+
+                    }
+                    score++;
+                }
+            }
+            Dictionary<string, string> InformationFromTheFile = new Dictionary<string, string>
+        { { "Information" , EnemyInformation}, {"dangerous Words" , ToString(dangerousWordsUsed) } , {"score" , $"{score}" }  };
+            return InformationFromTheFile;
+        }
+        string ToString(List<string> list)
+        {
+            string Words = "";
+            foreach (string word in list)
+            {
+                Words += $" {word}";
+            }
+            return Words;
+        }
 
         // warning system
 
