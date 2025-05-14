@@ -1,2 +1,18 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿namespace ATBASH
+{
+    class Program
+    {
+        static void Main()
+        {
+
+        }
+
+        // decrypting function
+
+        // message analyzer
+
+        // warning system
+
+
+    }
+}
