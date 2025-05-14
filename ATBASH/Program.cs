@@ -71,10 +71,10 @@ namespace ATBASH
             string[] arrEnemyInformatin = EnemyInformation.Split(" ");
             List<string> dangerousWordsUsed = new List<string>();
             int score = 0;
-            foreach (string word in arrEnemyInformatin.ToLower())
+            foreach (string word in arrEnemyInformatin)
             {
                 foreach (string dangerousWord in dangerousWords)
-                    if (dangerousWord.Contains(word))
+                    if (word.Contains(dangerousWord))
                     {
                         if (!(dangerousWordsUsed.Contains(dangerousWord)))
                         {
