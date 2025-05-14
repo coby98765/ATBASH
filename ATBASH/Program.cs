@@ -6,7 +6,7 @@
         {
             
         }
-
+        // decrypting function
         string Decoder(string EncryptedText)
         {
             string DecryptedText = " ";
