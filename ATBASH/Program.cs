@@ -62,26 +62,29 @@
             string[] arrEnemyInformatin = EnemyInformation.Split(" ");
             List<string> dangerousWordsUsed = new List<string>();
             int score = 0;
-            foreach (string word in arrEnemyInformatin)
+            foreach (string word in arrEnemyInformatin.ToLower())
             {
-                if (dangerousWords.Contains(word))
-                {
-                    if (!(dangerousWordsUsed.Contains(word)))
+                foreach (string dangerousWord in dangerousWords)
+                    if (dangerousWord.Contains(word))
                     {
-                        dangerousWordsUsed.Add(word);
-
+                        if (!(dangerousWordsUsed.Contains(dangerousWord)))
+                        {
+                            dangerousWordsUsed.Add(dangerousWord);
+                        }
+                        score++;
                     }
-                    else
-                    {
-
-                    }
-                    score++;
-                }
             }
             Dictionary<string, string> InformationFromTheFile = new Dictionary<string, string>
-        { { "Information" , EnemyInformation}, {"dangerous Words" , ToString(dangerousWordsUsed) } , {"score" , $"{score}" }  };
+            { 
+                { "Information" , EnemyInformation}, 
+                {"dangerous Words" , ToString(dangerousWordsUsed)}, 
+                {"score" , $"{score}" }  
+            };
+
             return InformationFromTheFile;
         }
+
+        //converts list to string
         string ToString(List<string> list)
         {
             string Words = "";
